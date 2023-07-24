@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>My Profile</h1>
+    <div class="profile-info">
+      <div class="profile-picture">
+        <img src="assets\Profie_image.jpg" alt="" class="image">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+      </div>
+      <label for="name">First Name:</label>
+      <input type="text" id="name" formControlName ="FirstName" placeholder="Enter your name">
+      <label for="name">Last Name:</label>
+      <input type="text" id="name" formControlName ="LastName" placeholder="Enter your name">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName ="Email" placeholder="Enter your email">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName ="Password" placeholder="Enter your password">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input type="date" id="dateOfBirth" formControlName ="Dob">
+      <label for="Address">Contact:</label>
+      <input type="text" id="contact" formControlName ="Contact" placeholder="Enter your contact">
+      <label for="Address">Address Line 1:</label>
+      <input type="text" id="address" formControlName ="AddressLine1" placeholder="Enter your address">
+      <label for="Address">Address Line 2:</label>
+      <input type="text" id="address" formControlName ="AddressLine2" placeholder="Enter your address">
+      <label for=" city">City:</label>
+      <input type="text" id="city" formControlName ="City" placeholder="Enter your City">
+      <label for="name">State:</label>
+      <input type="text" id="state" formControlName ="State" placeholder="Enter your State">
+      <label for="name">Permanent City:</label>
+      <input type="text" id="name" formControlName ="PermanentCity" placeholder="Enter your Permanent City">
+      <label for="name">Permanent State:</label>
+      <input type="text" id="name" formControlName ="PermanentState" placeholder="Enter your Permanent State">
+      <button (click)="updateProfile()">Update</button>
+    </div>
+  </div>
