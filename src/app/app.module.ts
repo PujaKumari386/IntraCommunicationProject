@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GeneralComponent } from './general/general.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { GroupComponent } from './group/group.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegistrationComponent,
     GeneralComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-general',
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class GeneralComponent implements OnInit{
 
   searchTearm ='';
-  constructor(activatedRoute:ActivatedRoute, private router: Router, private authService: AuthService) {
+  constructor(activatedRoute:ActivatedRoute, private router: Router, private authService: AuthService, private token: TokenService) {
     activatedRoute.params.subscribe((params) => {
       if(params['searchTearm']) this.searchTearm = params['searchTearm'];
     });
@@ -20,6 +21,9 @@ export class GeneralComponent implements OnInit{
   search(term:string):void{
     if(term)
     this.router.navigateByUrl('/search/'+ term);
+  }
+  onLogout(){
+    localStorage.clear();
   }
 
   // onDeleteAccount(): void {
