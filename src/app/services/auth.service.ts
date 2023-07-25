@@ -19,4 +19,8 @@ export class AuthService {
   profile(updateObj: any){
     return this.http.patch<any>(`${this.baseUrl}patch`,updateObj);
   }
+
+  deleteuser(deleteObj: any){
+    return this.http.delete<any>(`${this.baseUrl}delete`,deleteObj);
+  }
 }

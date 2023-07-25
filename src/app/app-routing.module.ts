@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  { path: "", component: HomeComponent},
   {path:'login', component: LoginComponent},
   {path:'registration', component: RegistrationComponent},
   {path:'general', component: GeneralComponent},

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit{
-  constructor(private formBuilder:FormBuilder, private auth: AuthService, private router: Router){}
+  constructor(private formBuilder:FormBuilder, private auth: AuthService, private router: Router, private tokenService: TokenService){}
   registrationForm!:FormGroup
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({

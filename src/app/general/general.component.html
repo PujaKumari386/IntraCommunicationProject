@@ -1,25 +1,59 @@
 <header>
-    <div class="container">
-      <a routerLink="/" class="logo">Darbar - "The Urban Baithak"</a>
-      <nav>
-        <ul>
-          <li>
-            <a routerLink="/profile">Profile</a>
-          </li>
+  <div class="container">
+    <a class="logo">Darbar - "The Urban Baithak"</a>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/profile">Profile</a>
+        </li>
 
-          <li class="menu-container">
-            <a>Activity</a>
-            <div class="menu">
-              <a routerLink="/group">Groups</a>
-              <a routerLink="/orders">Notifications</a>
-            </div>
-          </li>
+        <li class="menu-container">
+          <a>Activity</a>
+          <div class="menu">
+            <a routerLink="/group">All Groups</a>
+            <a routerLink="/orders">Invitations</a>
+            <a routerLink="/orders">Requests</a>
+          </div>
+        </li>
 
-          <li>
-            <a routerLink="/home">Logout</a>
-          </li>
+        <li>
+          <a routerLink="/home">Logout</a>
+        </li>
 
-        </ul>
-      </nav>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div>
+  <input #s type="text" placeholder="Search...."
+   (keyup.enter)="search(s.value)"
+   [value]="searchTearm" />
+  <button (click)="search(s.value)">Search</button>
+</div>
+
+<mat-sidenav-container class="main-container">
+  <mat-sidenav mode="side" opened>
+    <ul>
+      <li>
+        <a routerLink="/dashboard">+ Add Group</a>
+      </li>
+      <li>
+        <a routerLink="/settings">+ Add Post</a>
+      </li>
+      <li>
+        <a routerLink="/dashboard">Joined Groups</a>
+      </li>
+      <li>
+        <a>Delete Account</a>
+      </li>
+      <!-- Add more side navbar items as needed -->
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-container">
+      <!-- Your main content here -->
+      <router-outlet></router-outlet>
     </div>
-  </header>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -48,6 +49,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSliderModule,
+    MatSidenavModule,
     BrowserAnimationsModule,
   ],
   providers: [],
