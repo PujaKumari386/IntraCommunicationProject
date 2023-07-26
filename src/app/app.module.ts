@@ -24,6 +24,10 @@ import { GeneralComponent } from './general/general.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';
+import { AddgroupComponent } from './addgroup/addgroup.component';
+import {MatSelectModule} from '@angular/material/select';
+import { PostComponent } from './post/post.component';
+import { AddpostComponent } from './addpost/addpost.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +36,10 @@ import { GroupComponent } from './group/group.component';
     GeneralComponent,
     HomeComponent,
     ProfileComponent,
-    GroupComponent
+    GroupComponent,
+    AddgroupComponent,
+    PostComponent,
+    AddpostComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +53,10 @@ import { GroupComponent } from './group/group.component';
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
+    MatSelectModule,
     MatIconModule,
     MatDialogModule,
+    
     MatDatepickerModule,
     MatNativeDateModule,
     MatSliderModule,

@@ -25,10 +25,4 @@ export class GeneralComponent implements OnInit{
   onLogout(){
     localStorage.clear();
   }
-
-  // onDeleteAccount(): void {
-  //   this.authService.deleteuser().subscribe({
-      
-  //   });
-  // }
 }

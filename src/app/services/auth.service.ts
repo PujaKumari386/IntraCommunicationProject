@@ -18,7 +18,8 @@ export class AuthService {
   }
 
   profile(updateObj: any){
-    return this.http.patch<any>(`${this.baseUrl}User/patch`,updateObj);
+    const adminId = localStorage.getItem("id");
+    return this.http.patch<any>(`${this.baseUrl}User/patch/${adminId}`,updateObj);
   }
 
   deleteuser(deleteObj: any){

@@ -1,0 +1,14 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar>Add Post</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="addpost" class="post-form">
+            <mat-form-field>
+                <input matInput type="postname" formControlName ="postDescription" placeholder="Post Description">
+            </mat-form-field>
+            <mat-card-actions class="action">                
+            <button (click)="onAdd()" mat-raised-button type="submit">Add</button> 
+            <p style="text-align: center; margin: 5px;"></p>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

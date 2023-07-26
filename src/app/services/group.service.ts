@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +12,10 @@ export class GroupService {
 
   group(){
     return this.http.get<any>(`${this.groupsUrl}Allgroups`);
+  }
+
+  addgroup(groupObj: any){
+    const adminId = localStorage.getItem("id");
+    return this.http.post<any>(`${this.groupsUrl}create/${adminId}`,groupObj);
   }
 }

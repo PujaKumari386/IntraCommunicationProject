@@ -1,0 +1,25 @@
+<h2>All Posts</h2>
+<ul>
+    <mat-sidenav mode="side" opened>
+        <ul>
+          <li>
+            <a routerLink="/addpost">+ Add Post</a>
+          </li>
+        </ul>  
+    </mat-sidenav>      
+    
+    <li *ngFor="let post of posts">
+
+        <p>{{ post.postDescription }}</p>
+        <p>{{ post.postType }}</p>
+        <p>{{ post.postedOn }}</p>
+        <p>{{ post.postedAt }}</p>
+        <p>{{ post.postedBy }}</p>
+        <p>{{ post.startTime }}</p>
+        <p>{{ post.endTime }}</p>
+        <p>{{ post.url }}</p>
+
+    </li>
+</ul>
+
+<h3>{{name}}</h3>

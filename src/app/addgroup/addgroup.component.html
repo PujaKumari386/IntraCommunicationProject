@@ -1,0 +1,34 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar>Create Group</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="Creategroup" class="group-form">
+            <mat-form-field>
+                <input matInput type="groupname" formControlName ="GroupName" placeholder="Group Name">
+                <mat-hint style="color: red;" *ngIf="Creategroup.get('GroupName')?.touched && Creategroup.get('GroupName')?.errors?.['required']">
+                    GroupName is required
+                </mat-hint>
+            </mat-form-field>
+         
+            <mat-form-field>
+                <input matInput type="groupdescription" formControlName ="Description" placeholder="Group Description">
+                <mat-hint style="color: red;" *ngIf="Creategroup.get('Description')?.touched && Creategroup.get('Description')?.errors?.['required']">
+                    description
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Select Group Type</mat-label>
+                <mat-select formControlName="GroupType">
+                  <mat-option value="0">public</mat-option>
+                  <mat-option value="1">private</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            <mat-card-actions class="action">                
+            <button (click)="onSave()" mat-raised-button type="submit">Save</button>
+            <button (click)="onCancel()" mat-raised-button type="reset">Cancel</button> 
+            <p style="text-align: center; margin: 5px;"></p>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

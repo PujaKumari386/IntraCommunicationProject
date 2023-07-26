@@ -6,6 +6,9 @@ import { GeneralComponent } from './general/general.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';
+import { AddgroupComponent } from './addgroup/addgroup.component';
+import { PostComponent } from './post/post.component';
+import { AddpostComponent } from './addpost/addpost.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -14,7 +17,10 @@ const routes: Routes = [
   {path:'general', component: GeneralComponent},
   {path:'home', component: HomeComponent},
   {path:'profile', component: ProfileComponent},
-  {path:'group', component: GroupComponent}
+  {path:'group', component: GroupComponent},
+  {path:'addgroup', component: AddgroupComponent},
+  {path:'post', component: PostComponent},
+  {path:'addpost', component: AddpostComponent}
 ];
 
 @NgModule({
