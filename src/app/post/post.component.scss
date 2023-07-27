@@ -1,0 +1,25 @@
+/* Center the content horizontally */
+.sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  /* Create a container for the posts */
+  .post-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    justify-content: center;
+  }
+  
+  /* Style for each post card */
+  .post-card {
+    width: 300px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

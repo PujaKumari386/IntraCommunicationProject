@@ -3,10 +3,12 @@
         <mat-toolbar>Add Post</mat-toolbar>
         <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="addpost" class="post-form">
             <mat-form-field>
-                <input matInput type="postname" formControlName ="postDescription" placeholder="Post Description">
+                <input matInput #postDescription type="postname" formControlName ="postDescription" placeholder="Post Description">
             </mat-form-field>
             <mat-card-actions class="action">                
-            <button (click)="onAdd()" mat-raised-button type="submit">Add</button> 
+            <button (click)="onAdd(postDescription.value)" mat-raised-button type="submit">Add</button> 
+            <p style="text-align: center; margin: 5px;"></p>
+            <button (click)="onCancel()" mat-raised-button type="submit">Cancel</button> 
             <p style="text-align: center; margin: 5px;"></p>
             </mat-card-actions>
         </form>

@@ -1,25 +1,29 @@
 <h2>All Posts</h2>
-<ul>
-    <mat-sidenav mode="side" opened>
-        <ul>
-          <li>
-            <a routerLink="/addpost">+ Add Post</a>
-          </li>
-        </ul>  
-    </mat-sidenav>      
-    
-    <li *ngFor="let post of posts">
 
-        <p>{{ post.postDescription }}</p>
-        <p>{{ post.postType }}</p>
-        <p>{{ post.postedOn }}</p>
-        <p>{{ post.postedAt }}</p>
-        <p>{{ post.postedBy }}</p>
-        <p>{{ post.startTime }}</p>
-        <p>{{ post.endTime }}</p>
-        <p>{{ post.url }}</p>
-
+<!-- Replace mat-sidenav with mat-card -->
+<mat-card class="sidebar">
+  <ul>
+    <li>
+      <button (click)="gotoAddPost()">+ Add Post</button>
     </li>
-</ul>
+  </ul>
+</mat-card>
 
-<h3>{{name}}</h3>
+<div class="post-container">
+  <!-- Use ngFor to loop through posts and display them in mat-cards -->
+  <mat-card *ngFor="let post of posts" class="post-card">
+    <p>{{ post.postDescription }}</p>
+    <p>{{ post.postedBy }}</p>
+    
+  <mat-card-actions class="action">           
+    <button mat-raised-button type="submit">❤️</button> 
+    <p style="text-align: center; margin: 5px;"></p>
+    <button mat-raised-button type="submit">💬 </button> 
+    <p style="text-align: center; margin: 5px;"></p>
+    <button mat-raised-button type="submit">📣</button> 
+    <p style="text-align: center; margin: 5px;"></p>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<h3>{{ name }}</h3>

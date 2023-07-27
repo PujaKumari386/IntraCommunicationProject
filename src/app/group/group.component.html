@@ -1,11 +1,22 @@
-<h2>All Groups</h2>
-<ul>
-    <li *ngFor="let group of groups">
-        
-        <p (click)="callgroup(group.groupId)" router="/post">{{ group.groupName }}</p>
-        <p>{{ group.groupDescription }}</p>
 
-    </li>
-</ul>
-
+<div class="group-container">
+    <mat-card>  
+        <div class="centered-text">
+            <h2>All Groups</h2>
+          </div>
+    <!-- Use ngFor to loop through posts and display them in mat-cards -->
+    <mat-card *ngFor="let group of groups" class="group-card">
+      <button (click)="callgroup(group.groupId)">{{ group.groupName }}</button>
+      <p style="text-align: center; margin: 5px;"></p>
+      <p>{{ group.groupDescription }}</p>
+         
+        <mat-card-actions class="action">
+          <button #sendRequestButton class="send-request-button" mat-raised-button (click)="toggleRequestState()">
+            {{ isRequested ? 'Requested' : 'Send Request' }}
+          </button>
+          <p *ngIf="isRequested" id="statusMessage" style="text-align: center; margin: 5px;">Requested</p>
+        </mat-card-actions>
+     </mat-card>
+    </mat-card> 
+  </div>
 <h3>{{name}}</h3>

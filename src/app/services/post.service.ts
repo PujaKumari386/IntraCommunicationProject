@@ -13,4 +13,8 @@ export class PostService {
   post(groupId: any){
     return this.http.get<any>(`${this.postsUrl}post?groupId=${groupId}`);
   }
+
+  addpost(postObj: any){
+    return this.http.post<any>(`${this.postsUrl}add/Post`,postObj);
+  }
 }

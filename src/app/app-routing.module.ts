@@ -19,8 +19,8 @@ const routes: Routes = [
   {path:'profile', component: ProfileComponent},
   {path:'group', component: GroupComponent},
   {path:'addgroup', component: AddgroupComponent},
-  {path:'post', component: PostComponent},
-  {path:'addpost', component: AddpostComponent}
+  {path:'post/:id', component: PostComponent},
+  {path:'post/:id/addpost', component: AddpostComponent}
 ];
 
 @NgModule({

@@ -15,7 +15,7 @@ header{
     cursor: pointer;
   }
   
-  .container{
+  .bigbox{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -63,7 +63,7 @@ header{
 div input{
     border-radius: 10rem 0 0 10rem;
     border: none;
-    height: 0.6rem;
+    height: 3rem;
     width: 20rem;
     background-color: #f1f1f1;
     padding: 1.2rem;

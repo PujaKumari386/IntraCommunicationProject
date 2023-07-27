@@ -1,91 +1,91 @@
-<div class="container">
-    <div mat-dialog-title>
-      <h1>Registration Form</h1>
-</div>
-<form [formGroup]="registrationForm">
-  <mat-card> 
-    <mat-dialog-content class="content">
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>FirstName</mat-label>
-          <input matInput type="text" formControlName ="FirstName" placeholder="Ex. Ram">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>LastName</mat-label>
-          <input matInput type="text" formControlName ="LastName" placeholder="Ex. Rathore">
-        </mat-form-field>
-      </div>
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName ="Email" placeholder="Ex. ram@gmail.com">
-          <mat-hint style="color: red;" *ngIf="registrationForm.get('Email')?.touched && registrationForm.get('Email')?.errors?.['required']">
-            Useremail is required
-        </mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Choose a date</mat-label>
-          <input matInput formControlName ="Dob" [matDatepicker]="picker">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <input matInput type="password" formControlName ="Password" placeholder="Password">
-          <mat-hint style="color: red;" *ngIf="registrationForm.get('Password')?.touched && registrationForm.get('Password')?.errors?.['required']">
-            Password is required
-        </mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Contact</mat-label>
-          <input matInput type="text" formControlName ="Contact" placeholder="Ex. 1234567890">
-        </mat-form-field>
-      </div>
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Addressline1</mat-label>
-          <input matInput type="text" formControlName ="AddressLine1">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>AddressLine2</mat-label>
-          <input matInput type="text" formControlName ="AddressLine2">
-        </mat-form-field>
-      </div>   
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>City</mat-label>
-          <input matInput type="text" formControlName ="City">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>State</mat-label>
-          <input matInput type="text" formControlName ="State">
-        </mat-form-field>
-      </div>
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>PermanentCity</mat-label>
-          <input matInput type="text" formControlName ="PermanentCity">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>PermanentState</mat-label>
-          <input matInput type="text" formControlName ="PermanentState">
-        </mat-form-field>
-      </div>
-  
-    </mat-dialog-content>
-    <mat-card-actions class="action">
-      <button (click)="onCancel()" mat-raised-button type="reset">Cancel</button>
-      <button (click)="onSave()" mat-raised-button color="primary" type="submit">Save</button>
-      <p style="text-align: center; margin: 5px;"></p>
-    </mat-card-actions>
-  </mat-card>
-</form>
+<div class="registration-form-container">
+  <div mat-dialog-title>
+    <h1>Registration Form</h1>
+  </div>
+  <form [formGroup]="registrationForm">
+    <mat-card>
+      <mat-dialog-content class="content">
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>FirstName</mat-label>
+            <input matInput type="text" formControlName="FirstName" placeholder="Ex. Ram">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>LastName</mat-label>
+            <input matInput type="text" formControlName="LastName" placeholder="Ex. Rathore">
+          </mat-form-field>
+        </div>
 
-  
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="Email" placeholder="Ex. ram@gmail.com">
+            <mat-hint style="color: red;"
+              *ngIf="registrationForm.get('Email')?.touched && registrationForm.get('Email')?.errors?.['required']">
+              Useremail is required
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput formControlName="Dob" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <input matInput type="password" formControlName="Password" placeholder="Password">
+            <mat-hint style="color: red;"
+              *ngIf="registrationForm.get('Password')?.touched && registrationForm.get('Password')?.errors?.['required']">
+              Password is required
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Contact</mat-label>
+            <input matInput type="text" formControlName="Contact" placeholder="Ex. 1234567890">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Addressline1</mat-label>
+            <input matInput type="text" formControlName="AddressLine1">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>AddressLine2</mat-label>
+            <input matInput type="text" formControlName="AddressLine2">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput type="text" formControlName="City">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput type="text" formControlName="State">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>PermanentCity</mat-label>
+            <input matInput type="text" formControlName="PermanentCity">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>PermanentState</mat-label>
+            <input matInput type="text" formControlName="PermanentState">
+          </mat-form-field>
+        </div>
+
+      </mat-dialog-content>
+      <mat-card-actions class="action">
+        <button (click)="onCancel()" mat-raised-button type="reset">Cancel</button>
+        <button (click)="onSave()" mat-raised-button color="primary" type="submit">Save</button>
+        <p style="text-align: center; margin: 5px;"></p>
+      </mat-card-actions>
+    </mat-card>
+  </form>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./group.component.scss']
 })
 export class GroupComponent implements OnInit {
+  isRequested: boolean = false;
   groups: any[] = [];
   name = "";
   constructor(private groupService: GroupService, private shareService: ShareService, private router: Router) { }
@@ -17,6 +18,12 @@ export class GroupComponent implements OnInit {
     this.getGroups();
     
   }
+
+  //
+  toggleRequestState() {
+    this.isRequested = !this.isRequested;
+  }
+  //experiment
 
   getGroups(): any {
     this.groupService.group()
@@ -30,8 +37,8 @@ export class GroupComponent implements OnInit {
   }
 
   callgroup(id:any){
-    this.shareService.setgroupId(id);
-    this.router.navigate(["post"]);
+    //this.shareService.setgroupId(id);
+    this.router.navigate([`post/${id}`]);
 
     
 }
