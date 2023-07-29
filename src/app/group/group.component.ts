@@ -39,7 +39,6 @@ export class GroupComponent implements OnInit {
   callgroup(id:any){
     //this.shareService.setgroupId(id);
     this.router.navigate([`post/${id}`]);
-
-    
-}
+  }
+  
 }

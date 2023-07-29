@@ -11,6 +11,7 @@ import { TokenService } from '../services/token.service';
 export class GeneralComponent implements OnInit{
 
   searchTearm ='';
+  searchResults : string[]=[];
   constructor(activatedRoute:ActivatedRoute, private router: Router, private authService: AuthService, private token: TokenService) {
     activatedRoute.params.subscribe((params) => {
       if(params['searchTearm']) this.searchTearm = params['searchTearm'];
@@ -18,10 +19,22 @@ export class GeneralComponent implements OnInit{
    }
   ngOnInit(): void {
   }
+
   search(term:string):void{
     if(term)
     this.router.navigateByUrl('/search/'+ term);
   }
+  onSearch(name:string){
+    this.authService.getUserBySearchTerm(name).subscribe({
+      next:(res:any)=>{
+        this.searchResults =res;
+        console.log(this.searchResults)
+      },error: (error:any) => {
+        console.error(error)
+      }
+    })
+  }
+
   onLogout(){
     localStorage.clear();
   }

@@ -13,7 +13,7 @@ export class GroupService {
   group(){
     return this.http.get<any>(`${this.groupsUrl}Allgroups`);
   }
-
+  
   addgroup(groupObj: any){
     const adminId = localStorage.getItem("id");
     return this.http.post<any>(`${this.groupsUrl}create/${adminId}`,groupObj);

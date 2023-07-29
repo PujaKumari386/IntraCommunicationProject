@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -6,100 +9,77 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  firstName!: string;
-  lastName!: string;
-  email!: string;
-  password!: string;
-  dateOfBirth!: Date;
-  addressLine1!: string;
-  addressLine2!: string;
-  city!: string;
-  state!: string;
-  permanentCity!: string;
-  permanentState!: string;
-  profilePicture!: string | ArrayBuffer;
 
+  constructor(private formBuilder:FormBuilder,private authService: AuthService,  private router: Router) { }
+  myProfile = new FormGroup({
+
+  firstName: new FormControl(''),
+  lastName: new FormControl(''),
+  email: new FormControl(''),
+  password: new FormControl(''),
+  contact: new FormControl(''),
+  dob: new FormControl(''),
+  addressLine1: new FormControl(''),
+  addressLine2: new FormControl(''),
+  city: new FormControl(''),
+  state: new FormControl(''),
+  permanentCity: new FormControl(''),
+  permanentState: new FormControl(''),
+
+  }); 
+
+  user: any = {};
+  
   ngOnInit() {
-    this.loadProfileData();
+    this.getUsers();
+    
   }
 
-  loadProfileData() {
-    // Load data from local storage if available
-    const savedFirstName = localStorage.getItem('firstName');
-    const savedLastName = localStorage.getItem('lastName');
-    const savedEmail = localStorage.getItem('email');
-    const savedDateOfBirth = localStorage.getItem('dateOfBirth');
-    const savedAddressLine1 = localStorage.getItem('addressLine1');
-    const savedAddressLine2 = localStorage.getItem('addressLine2');
-    const savedCity = localStorage.getItem('city');
-    const savedState = localStorage.getItem('state');
-    const savedPermanentCity = localStorage.getItem('permanentCity');
-    const savedPermanentState = localStorage.getItem('permanentState');
-    const savedProfilePicture = localStorage.getItem('profilePicture');
+  getUsers() {
+    // You can get the user's ID from local storage or from any other source
+    const userId = localStorage.getItem("id");
 
-    if (savedFirstName) {
-      this.firstName = savedFirstName;
-    }
-    if (savedLastName) {
-      this.lastName = savedLastName;
-    }
-    if (savedEmail) {
-      this.email = savedEmail;
-    }
-    if (savedDateOfBirth) {
-      this.dateOfBirth = new Date(savedDateOfBirth);
-    }
-    if (savedAddressLine1) {
-      this.addressLine1 = savedAddressLine1;
-    }
-    if (savedAddressLine2) {
-      this.addressLine2 = savedAddressLine2;
-    }
-    if (savedCity) {
-      this.city = savedCity;
-    }
-    if (savedState) {
-      this.state = savedState;
-    }
-    if (savedPermanentCity) {
-      this.permanentCity = savedPermanentCity;
-    }
-    if (savedPermanentState) {
-      this.permanentState = savedPermanentState;
-    }
-    if (savedProfilePicture) {
-      this.profilePicture = savedProfilePicture;
-    }
+    this.authService.getuserbyid(userId)
+      .subscribe({
+        next: (res) => {
+          this.user = res; // Assign the retrieved user data to the 'user' object
+          console.log(this.user);
+          this.myProfile.patchValue({
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            email: this.user.email,
+            contact: this.user.contact,
+            dob:this.user.dob,
+            addressLine1: this.user.addressLine1,
+            addressLine2: this.user.addressLine2,
+            city: this.user.city,
+            state: this.user.state,
+            permanentCity: this.user.permanentCity,
+            permanentState: this.user.permanentState,
+            })
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
   }
 
-  updateProfile() {
-    localStorage.setItem('firstName', this.firstName);
-    localStorage.setItem('lastName', this.lastName);
-    localStorage.setItem('email', this.email);
-    if (this.dateOfBirth) {
-      localStorage.setItem('dateOfBirth', this.dateOfBirth.toISOString());
-    }
-    localStorage.setItem('addressLine1', this.addressLine1);
-    localStorage.setItem('addressLine2', this.addressLine2);
-    localStorage.setItem('city', this.city);
-    localStorage.setItem('state', this.state);
-    localStorage.setItem('permanentCity', this.permanentCity);
-    localStorage.setItem('permanentState', this.permanentState);
-    if (this.profilePicture) {
-      localStorage.setItem('profilePicture', this.profilePicture.toString());
-    }
-    alert('Profile updated successfully!');
-  }
+  UpdateUser(){}/*
+    this.authService.Updateprofile(userId)
+    let body = {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          contact: user.contact,
+          dob:user.dob,
+          addressLine1: user.addressLine1,
+          addressLine2: user.addressLine2,
+          city: user.city,
+          state: user.state,
+          permanentCity: user.permanentCity,
+          permanentState: user.permanentState
+          }
+  }*/
+  
 
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        // Set the profilePicture variable to the base64 encoded image
-        this.profilePicture;
-      };
-      reader.readAsDataURL(file);
-    }
-  }
 }

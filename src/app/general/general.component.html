@@ -29,20 +29,20 @@
   <input #s type="text" placeholder="Search...."
    (keyup.enter)="search(s.value)"
    [value]="searchTearm" />
-  <button (click)="search(s.value)">Search</button>
+  <button (click)="onSearch(s.value)">Search</button>
 </div>
 
 <mat-sidenav-container class="main-container">
   <mat-sidenav mode="side" opened>
     <ul>
       <li>
-        <a routerLink="/addgroup">+ Add Group</a>
+        <a routerLink="/addgroup">Add Group</a>
       </li>
       <li>
-        <a routerLink="/settings">+ Add Post</a>
+        <a routerLink="/group">All Groups</a>
       </li>
       <li>
-        <a routerLink="/dashboard">Joined Groups</a>
+        <a routerLink="/profile">Update Profile</a>
       </li>
       <li>
         <a routerLink="/">Delete Account</a>
@@ -52,7 +52,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content-container">
-      <!-- Your main content here -->
+      <app-group></app-group>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
