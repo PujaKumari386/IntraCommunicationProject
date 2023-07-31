@@ -1,42 +1,30 @@
+<video autoplay loop muted class="video">
+  <source src="assets/video.mp4" type="video/mp4">
+</video>
 
- <div class="container outerBox">
-  
-  <div class="container box">
-    <div class="video-container box">
-      <video autoplay loop muted class="video">
-        <source src="assets/video.mp4" type="video/mp4">
-      </video>
+<div class="box">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm">
+
+    <div class="inputBox">
+      <input style="margin-bottom: .125rem;" matInput type="email" formControlName="Email" placeholder="UserEmail">
+      <mat-hint style="color: red;"
+              *ngIf="loginForm.get('Email')?.touched && loginForm.get('Email')?.errors?.['required']">
+              Useremail is required
+      </mat-hint>
     </div>
-  </div>
 
-  <div class="container box">
-    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-      <mat-card fxFlex="25">
-          <mat-toolbar>Login Page</mat-toolbar>
-          <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm" class="login-form">
-              <mat-form-field>
-                  <input matInput type="email" formControlName ="Email" placeholder="Useremail">
-                  <mat-hint style="color: red;" *ngIf="loginForm.get('Email')?.touched && loginForm.get('Email')?.errors?.['required']">
-                      Useremail is required
-                  </mat-hint>
-              </mat-form-field>
-           
-              <mat-form-field>
-                  <input matInput type="password" formControlName ="Password" placeholder="Password">
-                  <mat-hint style="color: red;" *ngIf="loginForm.get('Password')?.touched && loginForm.get('Password')?.errors?.['required']">
-                      Password is required
-                  </mat-hint>
-              </mat-form-field>
-             
-                              
-              <button (click)="onLogin()" mat-raised-button type="submit">Login</button>
-              <mat-card-actions class="action">
-                  <p style="text-align: center; margin: 5px;">Don't have an Account?</p>
-                  <button (click)="onRegistration()" mat-raised-button type="submit">SignUp</button>
-              </mat-card-actions>
-          </form>
-      </mat-card>
-  </div>
-  </div>
+    <div class="inputBox">
+      <input style="margin-bottom: .125rem;" matInput type="password" formControlName="Password" placeholder="Password">
+      <mat-hint style="color: red; margin-bottom: -0.125rem;"
+            *ngIf="loginForm.get('Password')?.touched && loginForm.get('Password')?.errors?.['required']">
+            Password is required
+          </mat-hint>      
+    </div>
 
- </div>
+    <button (click)="onLogin()" mat-raised-button type="submit" style="margin-right: 10px;">Login</button>
+    <button (click)="onRegistration()" mat-raised-button type="submit" >SignUp</button>   
+       
+  </form>
+</div>
+
